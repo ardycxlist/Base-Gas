@@ -1,13 +1,4 @@
-setGas(gwei);
-                                        setUpdatedAt(new Date().toLocaleTimeString());
-                                            } catch (err) {
-                                                  setGas("⚠️ Error fetching");
-                                                      }
-                                                        }
-
-                                                          useEffect(() => {
-                                                              fetchGas();
-                                          "use client";
+"use client";
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 
@@ -27,7 +18,7 @@ export default function Home() {
     }
 
     fetchGas();
-    const interval = setInterval(fetchGas, 10000); // update setiap 10 detik
+    const interval = setInterval(fetchGas, 10000); // update tiap 10 detik
     return () => clearInterval(interval);
   }, []);
 
@@ -57,5 +48,4 @@ export default function Home() {
       </p>
     </main>
   );
-}                                                                                                                                                                                                      );
-                                                                                                                                                                                                                                                                                                                                                                                  }
+        }
