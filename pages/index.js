@@ -9,16 +9,19 @@ export default function Home() {
   useEffect(() => {
     async function fetchGas() {
       try {
-        const provider = new ethers.JsonRpcProvider("https://mainnet.base.org");
+        // Gunakan endpoint publik lain agar tidak diblokir Vercel
+        const provider = new ethers.JsonRpcProvider("https://base-rpc.publicnode.com");
         const gas = await provider.getGasPrice();
         setGasPrice(Number(ethers.formatUnits(gas, "gwei")).toFixed(2));
+        setError(null);
       } catch (err) {
+        console.error(err);
         setError("Error fetching Gwei");
       }
     }
 
     fetchGas();
-    const interval = setInterval(fetchGas, 10000); // update tiap 10 detik
+    const interval = setInterval(fetchGas, 10000);
     return () => clearInterval(interval);
   }, []);
 
